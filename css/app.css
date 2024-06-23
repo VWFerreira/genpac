@@ -1,0 +1,50 @@
+.datetime {
+    display: flex;
+    gap: 20px;
+    font-size: 90px;
+}
+
+.datetime p {
+    margin: 0;
+    font-size:80;
+}
+
+/* Estilo para a barra lateral */
+.sidebar .sidebar-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.sidebar img {
+    max-width: 100%;
+    height: auto;
+}
+
+.sidebar h1, .sidebar h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sidebar .stRadio {
+    margin-top: 20px;
+}
+
+.sidebar .stDateInput {
+    margin-top: 10px;
+}
+
+/* Estilo para alertas */
+.stAlert {
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Estilo para a imagem na barra lateral */
+.sidebar img {
+    width: 500px; /* Defina a largura da imagem */
+}

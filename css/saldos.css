@@ -1,0 +1,95 @@
+/* General settings */
+body {
+    font-family: 'arial Narrow', sans-serif;
+}
+
+.title {
+    font-size: 60px;
+    text-align: center;
+}
+
+.subheader {
+    font-size: 1.0em;
+    text-align: right;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.contract {
+    font-size: 1.4em;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.animated-image {
+    animation: fadeIn 3s;
+    max-height: 200px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 5; }
+    to { opacity: 1; }
+}
+
+
+
+.stMetric-container {
+    background-color:#440505;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 400px;  /* Defina a largura fixa desejada */
+    height: 80px; /* Defina a altura fixa desejada */
+    display: inline-block;
+}
+
+.stMetric-container .stMetric-value {
+    font-size: 18px;
+    color: #f9e10a;
+    font-family: 'Arial Narrow';
+
+
+}
+
+.stMetric-container .stMetric-label {
+    font-size: 1em;
+    font-family: 'Arial Narrow';
+}
+
+.stMetric-container:nth-child(odd) {
+    
+    font-family: 'Arial Narrow';
+}
+
+.stMetric-container:nth-child(even) {
+    font-family: 'Arial Narrow';
+}
+
+/* Custom styling for Altair chart */
+.vega-embed .marks path {
+    stroke-width: 2;
+    
+}
+
+/* Centered header for sections */
+.centered-header {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* Additional styling for metric cards */
+.metric-card {
+    
+    
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    text-align: center;
+    font-family: 'Arial Narrow';
+}

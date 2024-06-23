@@ -1,0 +1,79 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.text-container {
+    flex-grow: 1;
+    font-size: 1.5rem;
+    font-family: 'Arial Narrow', sans-serif;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.subheader {
+    margin: 5px 0;
+    font-size: 2rem;
+}
+
+.datetime {
+    margin: 5px 0;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.logo-image {
+    width: 150px;
+    height: auto;
+}
+
+.metric-box {
+    flex: 0 0 45%;
+    margin: 2%;
+    padding: 1%;
+    border: 1px solid #090909;
+    border-radius: 4px;
+    background-color: #440505;
+    text-align: center;
+}
+
+.metric-box h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.metric-box p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fffb09;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.subheader-lote {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #f8ef00;
+}
+
+.subheader-mtrcs {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #f8ef00;
+}
