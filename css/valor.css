@@ -5,6 +5,9 @@
     padding: 1rem;
     font-size: 2rem;
     font-family: 'Arial Narrow', sans-serif;
+    background-color: #f4f4f4; /* Adiciona uma cor de fundo para destaque */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra para profundidade */
 }
 
 .text-container {
@@ -34,6 +37,7 @@
 .logo-image {
     width: 150px;
     height: auto;
+    border-radius: 8px; /* Bordas arredondadas */
 }
 
 .metric-box {
@@ -41,9 +45,10 @@
     margin: 2%;
     padding: 1%;
     border: 1px solid #090909;
-    border-radius: 4px;
+    border-radius: 8px; /* Bordas arredondadas */
     background-color: #440505;
     text-align: center;
+    color: #ffffff; /* Muda a cor do texto para branco */
 }
 
 .metric-box h4 {
@@ -77,3 +82,4 @@
     margin: 10px 0;
     color: #f8ef00;
 }
+
