@@ -3,29 +3,37 @@ body {
     font-family: 'Arial Narrow', sans-serif;
 }
 
+.title,
+.subheader,
+.contract,
+.header-container,
+.text-container,
+.metric-subtitle {
+    font-family: 'Arial Narrow', sans-serif;
+}
+
 .title {
     font-size: 2.5rem;
     text-align: center;
     margin: 0;
-    font-family: 'Arial Narrow', sans-serif;
+}
+
+.subheader,
+.datetime {
+    margin: 5px 0;
+    text-align: right;
 }
 
 .subheader {
     font-size: 2rem;
-    margin: 5px 0;
-    text-align: right;
-    font-family: 'Arial Narrow', sans-serif;
-}
-
-.contract {
-    font-size: 1.4em;
-    font-family: 'Arial Narrow', sans-serif;
 }
 
 .datetime {
     font-size: 1rem;
-    margin: 5px 0;
-    text-align: right;
+}
+
+.contract {
+    font-size: 1.4em;
 }
 
 .logo-image {
@@ -33,7 +41,8 @@ body {
     height: auto;
 }
 
-.flex-container {
+.flex-container,
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,36 +63,34 @@ body {
     }
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-container,
+.text-container {
     padding: 1rem;
-    font-size: 2rem;
-    font-family: 'Arial Narrow', sans-serif;
     width: 100%;
-    height: auto;
+}
+
+.header-container {
+    font-size: 2rem;
 }
 
 .text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-grow: 1;
     font-size: 1.5rem;
-    font-family: 'Arial Narrow', sans-serif;
     text-align: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
+}
+
+.stMetric-container,
+.metric-card,
+.metric-box {
+    background-color: #800000;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Arial Narrow';
 }
 
 .stMetric-container {
-    background-color: #800000;
-    border-radius: 10px;
     padding: 10px;
     margin: 5px;
-    text-align: center;
     width: 400px;
     height: 80px;
     display: flex;
@@ -91,53 +98,35 @@ body {
     align-items: center;
 }
 
-.stMetric-container .stMetric-value {
-    font-size: 16px;
+.stMetric-value {
+    font-size: 18px;
     color: #f9e10a;
-    font-family: 'Arial Narrow';
 }
 
-.stMetric-container .stMetric-label {
+.stMetric-label {
     font-size: 1em;
-    font-family: 'Arial Narrow';
 }
 
-.stMetric-container:nth-child(odd),
-.stMetric-container:nth-child(even) {
-    font-family: 'Arial Narrow';
-}
-
-/* Custom styling for Altair chart */
-.vega-embed .marks path {
-    stroke-width: 2;
-}
-
-/* Centered header for sections */
-.centered-header {
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-/* Additional styling for metric cards */
-.metric-card {
-    border-radius: 10px;
+.metric-card,
+.metric-box {
+    border: 1px solid #090909;
     padding: 8px;
     margin: 4px;
-    text-align: center;
-    font-family: 'Arial Narrow';
-    background-color: #800000;
-    border: 1px solid #090909;
 }
 
-.metric-card h4 {
+.metric-card h4,
+.metric-box h4 {
     font-size: 1.2rem;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.5rem;
+}
+
+.metric-card p,
+.metric-box p {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .metric-card p {
-    font-size: 1.5rem;
-    font-weight: bold;
     color: #4CAF50;
 }
 
@@ -145,22 +134,11 @@ body {
     flex: 0 0 45%;
     margin: 2%;
     padding: 1%;
-    border: 1px solid #090909;
-    border-radius: 10px;
-    background-color: #440505;
-    text-align: center;
-}
-
-.metric-box h4 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
 }
 
 .metric-box p {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
     color: #fffb09;
+
 }
 
 .container {
@@ -172,69 +150,28 @@ body {
 }
 
 .subheader-lote,
-.subheader-mtrcs {
+.subheader-mtrcs,
+.metric-subtitle {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 10px 0;
-    color: #f8ef00;
-    text-align: center;
+    text-align: left;
     width: 100%;
+    font-family: 'Arial Narrow', sans-serif;
 }
 
 .lote-card {
     border: 1px solid #090909;
     border-radius: 10px;
-    background-color: #000000;
+    background-color: #000;
     padding: 0.5rem;
     margin: 0.5rem 0;
     text-align: center;
     width: 100%;
-    height: auto;
 }
 
 .lote-card h4 {
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
-}
 
-.lote-card p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4CAF50;
-}
-
-.horizontal-line {
-    border-top: 1px solid #090909;
-    margin: 0.5rem 0;
-    text-align: center;
-    color: #000;
-    width: 100%;
-}
-
-.metric-subtitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: 'Arial Narrow', sans-serif;
-    text-align: left;
-    width: 100%;
-    margin: 0.25rem 0;
-}
-
-.custom-subheader {
-    font-size: 1.5rem;
-    color: #4CAF50;
-    font-weight: bold;
-    font-family: 'Arial Narrow', sans-serif;
-    width: 100%;
-    margin: 0.25rem 0;
-}
-
-.custom-disciplina,
-.custom-quantidade {
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: 'Arial Narrow', sans-serif;
-    width: 100%;
-    margin: 0.25rem 0;
-    text-align: center;
 }
