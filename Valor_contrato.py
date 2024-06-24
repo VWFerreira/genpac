@@ -53,8 +53,8 @@ def calculate_previa_medicao_june(data, contract):
     return filtered_data["VALOR ORÇADO"].sum()
 
 def calculate_totals(data, contract):
-    # Condição que verifica se o status é "FINALIZADO" e se o contrato corresponde ao contrato fornecido
-    condition = (data["STATUS*"].str.lower() == "finalizado") & (data["CONTRATO"] == contract)
+    # Condição que verifica se o status é "FINALIZADO" ou "ORÇADO" e se o contrato corresponde ao contrato fornecido
+    condition = ((data["STATUS*"].str.lower() == "finalizado") | (data["STATUS*"].str.lower() == "orçado")) & (data["CONTRATO"] == contract)
     
     # Filtrando os dados com a condição
     filtered_data = data[condition]
@@ -65,6 +65,7 @@ def calculate_totals(data, contract):
     total_orcado = filtered_data["VALOR ORÇADO"].sum()
     
     return total_insumo, total_mao_de_obra, total_orcado
+
 
 def create_metric_box(label, value):
     return f"""
