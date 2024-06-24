@@ -26,9 +26,8 @@ def clean_data(data):
     return data
 
 def filter_data(data, contract, date_filter, value_column):
-    filtered_data = data[
-        (data["STATUS*"].str.lower() == "finalizado") & (data["CONTRATO"] == contract)
-    ]
+    condition = ((data["STATUS*"].str.lower() == "finalizado") | (data["STATUS*"].str.lower() == "orçado")) & (data["CONTRATO"] == contract)
+    filtered_data = data[condition]
     if date_filter == "today":
         today = datetime.now().date()
         filtered_data = filtered_data[filtered_data["DATA ORÇADO"].dt.date == today]
@@ -193,3 +192,4 @@ def principal():
 
 if __name__ == "__main__":
     principal()
+
