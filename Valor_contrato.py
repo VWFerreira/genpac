@@ -54,7 +54,7 @@ def calculate_previa_medicao_june(data, contract):
 
 def calculate_totals(data, contract):
     filtered_data = data[
-        (data["STATUS*"].str.lower() == "finalizado") & (data["CONTRATO"] == contract)
+        (data["STATUS*"].str.lower() == "FINALIZADO", "ORÇADO") & (data["CONTRATO"] == contract)
     ]
     total_insumo = filtered_data["VALOR INSUMO"].sum()
     total_mao_de_obra = filtered_data["VALOR MÃO DE OBRA"].sum()
