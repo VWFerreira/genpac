@@ -1,18 +1,24 @@
+/* app.css */
+
+/* Estilo para a data e hora */
 .datetime {
     display: flex;
     gap: 20px;
-    font-size: 90px;
+    font-size: 22px;
 }
 
 .datetime p {
     margin: 0;
-    font-size:80;
+    font-size: 28px;
+
 }
 
 /* Estilo para a barra lateral */
 .sidebar .sidebar-content {
     padding: 20px;
     color: #fff;
+    font-size: 22px;
+
 }
 
 .sidebar img {
@@ -20,7 +26,8 @@
     height: auto;
 }
 
-.sidebar h1, .sidebar h2 {
+.sidebar h1,
+.sidebar h2 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -42,6 +49,12 @@
     border: 1px solid #f5c6cb;
     border-radius: 4px;
     margin-top: 10px;
+}
+
+/* Estilo para a imagem na barra lateral */
+.sidebar img {
+    width: 500px;
+    /* Defina a largura da imagem */
 }
 
 /* Estilo para a imagem na barra lateral */
