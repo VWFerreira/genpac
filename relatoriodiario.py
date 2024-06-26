@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-
 def carregar_dados(url):
     try:
         tabela = pd.read_csv(url)
@@ -171,7 +170,6 @@ def exibir_tabelas(tabela):
             unsafe_allow_html=True,
         )
 
-
 def relatoriodiario():
     with open("./css/reldiario.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -179,7 +177,7 @@ def relatoriodiario():
     url = "https://docs.google.com/spreadsheets/d/1vp62n11C8Gnx9QMHL08QofGnNdlt08P54EJ7bkOHVaE/export?format=csv"
     tabela = carregar_dados(url)
     if tabela is not None:
-        st.write("## Resultados Lote 01 e Lote 02")
+        st.write('<p style="font-size:26px;">Resultados Lote 01 e Lote 02</p>', unsafe_allow_html=True)
         
         col1, col2, col3, col4 = st.columns(4, gap="large")
         
@@ -241,6 +239,7 @@ def relatoriodiario():
                 ["ELÉTRICA"],
                 "ELÉTRICA LT2",
             )
+
         st.markdown(
             """
             <div class='metric-subtitle'>
@@ -394,7 +393,6 @@ def relatoriodiario():
 
         st.markdown("<div class='horizontal-line'></div>", unsafe_allow_html=True)
         exibir_tabelas(tabela)
-
 
 if __name__ == "__main__":
     relatoriodiario()
