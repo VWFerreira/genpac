@@ -57,6 +57,7 @@ def calcular_metricas(tabela, contrato):
         "total_executadas_hoje": total_executadas_hoje,
     }
 
+
 def exibir_metricas_lote(tabela, contrato, titulo):
     metricas = calcular_metricas(tabela, contrato)
 
