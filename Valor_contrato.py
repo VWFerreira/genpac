@@ -32,22 +32,22 @@ def filter_data(data, contract, date_filter, value_column):
         today = datetime.now().date()
         filtered_data = filtered_data[filtered_data["DATA ORÇADO"].dt.date == today]
     elif date_filter == "june_2024":
-        june_2024_start = datetime(2024, 6, 1)
-        june_2024_end = datetime(2024, 6, 30)
+        july_2024_start = datetime(2024, 7, 1)
+        july_2024_end = datetime(2024, 7, 31)
         filtered_data = filtered_data[
-            (filtered_data["DATA ORÇADO"] >= june_2024_start) &
-            (filtered_data["DATA ORÇADO"] <= june_2024_end)
+            (filtered_data["DATA ORÇADO"] >= july_2024_start) &
+            (filtered_data["DATA ORÇADO"] <= july_2024_end)
         ]
     return filtered_data[value_column].sum()
 
 def calculate_previa_medicao_june(data, contract):
-    june_2024_start = datetime(2024, 6, 1)
-    june_2024_end = datetime(2024, 6, 30)
+    july_2024_start = datetime(2024, 7, 1)
+    july_2024_end = datetime(2024, 7, 31)
     filtered_data = data[
         (data["STATUS*"].str.lower() == "finalizado") &
         (data["CONTRATO"] == contract) &
-        (data["DATA ORÇADO"] >= june_2024_start) &
-        (data["DATA ORÇADO"] <= june_2024_end)
+        (data["DATA ORÇADO"] >= july_2024_start) &
+        (data["DATA ORÇADO"] <= july_2024_end)
     ]
     return filtered_data["VALOR ORÇADO"].sum()
 
@@ -96,16 +96,16 @@ def display_metrics(data):
         }
     }
 
-    june_2024_metrics = {
+    july_2024_metrics = {
         "0100215/2023": {
-            "budget": filter_data(data, "0100215/2023", "june_2024", "VALOR ORÇADO"),
-            "insumo": filter_data(data, "0100215/2023", "june_2024", "VALOR INSUMO"),
-            "mao_de_obra": filter_data(data, "0100215/2023", "june_2024", "VALOR MÃO DE OBRA")
+            "budget": filter_data(data, "0100215/2023", "july_2024", "VALOR ORÇADO"),
+            "insumo": filter_data(data, "0100215/2023", "july_2024", "VALOR INSUMO"),
+            "mao_de_obra": filter_data(data, "0100215/2023", "july_2024", "VALOR MÃO DE OBRA")
         },
         "0200215/2023": {
-            "budget": filter_data(data, "0200215/2023", "june_2024", "VALOR ORÇADO"),
-            "insumo": filter_data(data, "0200215/2023", "june_2024", "VALOR INSUMO"),
-            "mao_de_obra": filter_data(data, "0200215/2023", "june_2024", "VALOR MÃO DE OBRA")
+            "budget": filter_data(data, "0200215/2023", "july_2024", "VALOR ORÇADO"),
+            "insumo": filter_data(data, "0200215/2023", "july_2024", "VALOR INSUMO"),
+            "mao_de_obra": filter_data(data, "0200215/2023", "july_2024", "VALOR MÃO DE OBRA")
         }
     }
 
@@ -135,11 +135,11 @@ def display_metrics(data):
     with col3:
         st.markdown(create_metric_box("Valor Mão de Obra - Hoje", f"R$ {today_metrics['0100215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
     with col4:
-        st.markdown(create_metric_box("Valor Orçado - Junho 2024", f"R$ {june_2024_metrics['0100215/2023']['budget']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Orçado - Julho 2024", f"R$ {july_2024_metrics['0100215/2023']['budget']:,.2f}"), unsafe_allow_html=True)
     with col5:
-        st.markdown(create_metric_box("Valor Insumo - Junho 2024", f"R$ {june_2024_metrics['0100215/2023']['insumo']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Insumo - Julho 2024", f"R$ {july_2024_metrics['0100215/2023']['insumo']:,.2f}"), unsafe_allow_html=True)
     with col6:
-        st.markdown(create_metric_box("Valor Mão de Obra - Junho 2024", f"R$ {june_2024_metrics['0100215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Mão de Obra - Julho 2024", f"R$ {july_2024_metrics['0100215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
 
     st.markdown('<p class="subheader-lote">Lote 2 0200215/2023</p>', unsafe_allow_html=True)
     col8, col9, col10, col11, col12, col13 = st.columns(6)
@@ -152,11 +152,11 @@ def display_metrics(data):
     with col10:
         st.markdown(create_metric_box("Valor Mão de Obra - Hoje", f"R$ {today_metrics['0200215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
     with col11:
-        st.markdown(create_metric_box("Valor Orçado - Junho 2024", f"R$ {june_2024_metrics['0200215/2023']['budget']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Orçado - Julho 2024", f"R$ {july_2024_metrics['0200215/2023']['budget']:,.2f}"), unsafe_allow_html=True)
     with col12:
-        st.markdown(create_metric_box("Valor Insumo - Junho 2024", f"R$ {june_2024_metrics['0200215/2023']['insumo']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Insumo - Julho 2024", f"R$ {july_2024_metrics['0200215/2023']['insumo']:,.2f}"), unsafe_allow_html=True)
     with col13:
-        st.markdown(create_metric_box("Valor Mão de Obra - Junho 2024", f"R$ {june_2024_metrics['0200215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
+        st.markdown(create_metric_box("Valor Mão de Obra - Julho 2024", f"R$ {july_2024_metrics['0200215/2023']['mao_de_obra']:,.2f}"), unsafe_allow_html=True)
 
     st.markdown('<p class="subheader-lote">Totais</p>', unsafe_allow_html=True)
     col14, col15, col16, col17 = st.columns(4)
@@ -165,13 +165,13 @@ def display_metrics(data):
     with col15:
         st.markdown(create_metric_box("Total Valor Mão de Obra", f"R$ {total_mao_de_obra:,.2f}"), unsafe_allow_html=True)
     with col16:
-        st.markdown(create_metric_box("Total Valor Orçado - Junho 2024",
+        st.markdown(create_metric_box("Total Valor Orçado - Julho 2024",
                     f"R$ {total_orcado:,.2f}"), unsafe_allow_html=True)
     with col17:
-        st.markdown(create_metric_box("Total Medição - Junho 2024",
+        st.markdown(create_metric_box("Total Medição - Julho 2024",
                     f"R$ {total_medicao:,.2f}"), unsafe_allow_html=True)
 
-    st.markdown('<p class="subheader-lote">Previa de Medição - Junho 2024</p>', unsafe_allow_html=True)
+    st.markdown('<p class="subheader-lote">Previa de Medição - Julho 2024</p>', unsafe_allow_html=True)
     col18, col19 = st.columns(2)
     with col18:
         st.markdown(create_metric_box("Lote 1 - Contrato 0100215/2023",
