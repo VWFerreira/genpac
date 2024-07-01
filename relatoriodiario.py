@@ -52,7 +52,7 @@ def calcular_metricas(tabela, contrato):
 
     return {
         "total_os_hoje": total_os_hoje,
-        "total_os_junho": total_os_julho,
+        "total_os_julho": total_os_julho,
         "total_orcamentos_hoje": total_orcamentos_hoje,
         "total_executadas_hoje": total_executadas_hoje,
     }
