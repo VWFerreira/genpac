@@ -57,7 +57,6 @@ def calcular_metricas(tabela, contrato):
         "total_executadas_hoje": total_executadas_hoje,
     }
 
-
 def exibir_metricas_lote(tabela, contrato, titulo):
     metricas = calcular_metricas(tabela, contrato)
 
@@ -78,7 +77,7 @@ def exibir_metricas_lote(tabela, contrato, titulo):
         st.markdown(
             f"""
             <div class='metric-card'>
-                <h4>Total de OS Junho</h4>
+                <h4>Total de OS Julho</h4>
                 <p>{metricas['total_os_julho']}</p>
             </div>
             """,
@@ -285,7 +284,7 @@ def relatoriodiario():
             st.markdown(
                 f"""
                 <div class='metric-card'>
-                    <h4>Total de OS Junho - Lote 02</h4>
+                    <h4>Total de OS Julho - Lote 02</h4>
                     <p>{calcular_metricas(tabela, "0200215/2023")['total_os_julho']}</p>
                 </div>
                 """,
@@ -338,7 +337,7 @@ def relatoriodiario():
         total_os_recebidas_hoje = calcular_metricas(tabela, "0100215/2023")['total_os_hoje'] + calcular_metricas(tabela, "0200215/2023")['total_os_hoje']
         total_os_finalizadas = calcular_metricas(tabela, "0100215/2023")['total_executadas_hoje'] + calcular_metricas(tabela, "0200215/2023")['total_executadas_hoje']
         total_orcamentos = calcular_metricas(tabela, "0100215/2023")['total_orcamentos_hoje'] + calcular_metricas(tabela, "0200215/2023")['total_orcamentos_hoje']
-        total_os_junho = calcular_metricas(tabela, "0100215/2023")['total_os_junho'] + calcular_metricas(tabela, "0200215/2023")['total_os_junho']
+        total_os_julho = calcular_metricas(tabela, "0100215/2023")['total_os_julho'] + calcular_metricas(tabela, "0200215/2023")['total_os_julho']
         
         st.markdown(
             """
@@ -385,7 +384,7 @@ def relatoriodiario():
             st.markdown(
                 f"""
                 <div class='metric-card'>
-                    <h4>Total de OS Junho</h4>
+                    <h4>Total de OS Julho</h4>
                     <p>{total_os_julho}</p>
                 </div>
                 """,
@@ -397,3 +396,4 @@ def relatoriodiario():
 
 if __name__ == "__main__":
     relatoriodiario()
+
