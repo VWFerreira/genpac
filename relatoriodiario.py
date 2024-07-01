@@ -38,7 +38,7 @@ def calcular_metricas(tabela, contrato):
     total_os_hoje = filtro_contrato[filtro_contrato["DATA RECEBIDO"] == hoje].shape[0]
 
     total_os_junho = filtro_contrato[
-        (pd.to_datetime(filtro_contrato["DATA RECEBIDO"]).dt.month == 6)
+        (pd.to_datetime(filtro_contrato["DATA RECEBIDO"]).dt.month == 7)
         & (pd.to_datetime(filtro_contrato["DATA RECEBIDO"]).dt.year == 2024)
     ].shape[0]
 
@@ -52,7 +52,7 @@ def calcular_metricas(tabela, contrato):
 
     return {
         "total_os_hoje": total_os_hoje,
-        "total_os_junho": total_os_junho,
+        "total_os_junho": total_os_julho,
         "total_orcamentos_hoje": total_orcamentos_hoje,
         "total_executadas_hoje": total_executadas_hoje,
     }
@@ -78,7 +78,7 @@ def exibir_metricas_lote(tabela, contrato, titulo):
             f"""
             <div class='metric-card'>
                 <h4>Total de OS Junho</h4>
-                <p>{metricas['total_os_junho']}</p>
+                <p>{metricas['total_os_julho']}</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -264,8 +264,8 @@ def relatoriodiario():
             st.markdown(
                 f"""
                 <div class='metric-card'>
-                    <h4>Total de OS Junho - Lote 01</h4>
-                    <p>{calcular_metricas(tabela, "0100215/2023")['total_os_junho']}</p>
+                    <h4>Total de OS Julho - Lote 01</h4>
+                    <p>{calcular_metricas(tabela, "0100215/2023")['total_os_julho']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -285,7 +285,7 @@ def relatoriodiario():
                 f"""
                 <div class='metric-card'>
                     <h4>Total de OS Junho - Lote 02</h4>
-                    <p>{calcular_metricas(tabela, "0200215/2023")['total_os_junho']}</p>
+                    <p>{calcular_metricas(tabela, "0200215/2023")['total_os_julho']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -385,7 +385,7 @@ def relatoriodiario():
                 f"""
                 <div class='metric-card'>
                     <h4>Total de OS Junho</h4>
-                    <p>{total_os_junho}</p>
+                    <p>{total_os_julho}</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
