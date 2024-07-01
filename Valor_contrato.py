@@ -31,7 +31,7 @@ def filter_data(data, contract, date_filter, value_column):
     if date_filter == "today":
         today = datetime.now().date()
         filtered_data = filtered_data[filtered_data["DATA ORÇADO"].dt.date == today]
-    elif date_filter == "june_2024":
+    elif date_filter == "july_2024":
         july_2024_start = datetime(2024, 7, 1)
         july_2024_end = datetime(2024, 7, 31)
         filtered_data = filtered_data[
@@ -40,7 +40,7 @@ def filter_data(data, contract, date_filter, value_column):
         ]
     return filtered_data[value_column].sum()
 
-def calculate_previa_medicao_june(data, contract):
+def calculate_previa_medicao_july(data, contract):
     july_2024_start = datetime(2024, 7, 1)
     july_2024_end = datetime(2024, 7, 31)
     filtered_data = data[
@@ -52,19 +52,12 @@ def calculate_previa_medicao_june(data, contract):
     return filtered_data["VALOR ORÇADO"].sum()
 
 def calculate_totals(data, contract):
-    # Condição que verifica se o status é "FINALIZADO" ou "ORÇADO" e se o contrato corresponde ao contrato fornecido
     condition = ((data["STATUS*"].str.lower() == "finalizado") | (data["STATUS*"].str.lower() == "orçado")) & (data["CONTRATO"] == contract)
-    
-    # Filtrando os dados com a condição
     filtered_data = data[condition]
-    
-    # Calculando os totais
     total_insumo = filtered_data["VALOR INSUMO"].sum()
     total_mao_de_obra = filtered_data["VALOR MÃO DE OBRA"].sum()
     total_orcado = filtered_data["VALOR ORÇADO"].sum()
-    
     return total_insumo, total_mao_de_obra, total_orcado
-
 
 def create_metric_box(label, value):
     return f"""
@@ -109,9 +102,9 @@ def display_metrics(data):
         }
     }
 
-    previa_medicao_june = {
-        "0100215/2023": calculate_previa_medicao_june(data, "0100215/2023"),
-        "0200215/2023": calculate_previa_medicao_june(data, "0200215/2023")
+    previa_medicao_july = {
+        "0100215/2023": calculate_previa_medicao_july(data, "0100215/2023"),
+        "0200215/2023": calculate_previa_medicao_july(data, "0200215/2023")
     }
 
     total_metrics = {
@@ -122,7 +115,7 @@ def display_metrics(data):
     total_insumo = total_metrics["0100215/2023"][0] + total_metrics["0200215/2023"][0]
     total_mao_de_obra = total_metrics["0100215/2023"][1] + total_metrics["0200215/2023"][1]
     total_orcado = total_metrics["0100215/2023"][2] + total_metrics["0200215/2023"][2]
-    total_medicao = previa_medicao_june["0100215/2023"] + previa_medicao_june["0200215/2023"]
+    total_medicao = previa_medicao_july["0100215/2023"] + previa_medicao_july["0200215/2023"]
 
     st.markdown('<p class="subheader-lote">Lote 1 0100215/2023</p>', unsafe_allow_html=True)
     col1, col2, col3, col4, col5, col6 = st.columns(6)
@@ -175,10 +168,10 @@ def display_metrics(data):
     col18, col19 = st.columns(2)
     with col18:
         st.markdown(create_metric_box("Lote 1 - Contrato 0100215/2023",
-                    f"R$ {previa_medicao_june['0100215/2023']:,.2f}"), unsafe_allow_html=True)
+                    f"R$ {previa_medicao_july['0100215/2023']:,.2f}"), unsafe_allow_html=True)
     with col19:
         st.markdown(create_metric_box("Lote 2 - Contrato 0200215/2023",
-                    f"R$ {previa_medicao_june['0200215/2023']:,.2f}"), unsafe_allow_html=True)
+                    f"R$ {previa_medicao_july['0200215/2023']:,.2f}"), unsafe_allow_html=True)
 
 def principal():
     url = "https://docs.google.com/spreadsheets/d/1vp62n11C8Gnx9QMHL08QofGnNdlt08P54EJ7bkOHVaE/export?format=csv"
@@ -189,6 +182,6 @@ def principal():
 
     display_metrics(data)
 
-
 if __name__ == "__main__":
     principal()
+
