@@ -37,7 +37,7 @@ def calcular_metricas(tabela, contrato):
 
     total_os_hoje = filtro_contrato[filtro_contrato["DATA RECEBIDO"] == hoje].shape[0]
 
-    total_os_junho = filtro_contrato[
+    total_os_julho = filtro_contrato[
         (pd.to_datetime(filtro_contrato["DATA RECEBIDO"]).dt.month == 7)
         & (pd.to_datetime(filtro_contrato["DATA RECEBIDO"]).dt.year == 2024)
     ].shape[0]
